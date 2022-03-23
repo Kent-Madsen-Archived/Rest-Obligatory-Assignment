@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        //
+        Schema::create('article_creator_roles', function (Blueprint $table) 
+        {
             $table->id();
-            $table->timestamps();
+            $table->string('role')->unique();
         });
     }
 
@@ -26,6 +28,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        //
+        Schema::dropIfExists('article_creator_roles');
     }
 };
