@@ -5,25 +5,26 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeAccountsRequest;
 use App\Http\Resources\PostResource;
-use App\Models\Post;
+
+use Illuminate\Support\Facades\Auth;
+
+use Validator;
+
 use Illuminate\Http\Request;
 
-class accountsController extends Controller
+use App\Models\Users as User;
+use App\Models\Post;
+
+use App\Models\Account;
+
+
+class accountsController 
+    extends Controller
 {
     //
     public function index()
     {
         return response(null, 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -34,8 +35,48 @@ class accountsController extends Controller
      */
     public function store(storeAccountsRequest $request)
     {
-        return response(null, 200);
+        return response(null, 204);
     }
+
+    public function login(storeAccountsRequest $request)
+    {
+        return response(null, 204);
+    }
+
+    public function register(storeAccountsRequest $request)
+    {
+        $validator = Validator::make(
+            $request->all(), 
+            [
+                'username' => 'required',
+
+                'first_name' => 'required',
+                'last_name' => 'required',
+
+                'email_id' => 'required',
+                'password' => 'required',
+                
+                'confirm_password' => 'required|same:password',
+            ]
+        );
+
+        if( $validator->fails() )
+        {
+            return $this->sendError('Error validation', $validator->errors());       
+        }
+
+        $input = $request->all();
+        $input['password'] = bcrypt( $input[ 'password' ] );
+
+        $user = User::create( $input );
+        
+        $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
+        $success['name'] =  $user->nickname;
+
+        return response($success, 204);
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -47,7 +88,7 @@ class accountsController extends Controller
     {
         //
         
-        return response(null, 200);
+        return response(null, 204);
     }
 
     /**
@@ -60,7 +101,7 @@ class accountsController extends Controller
     {
         //
         
-        return response(null, 200);
+        return response(null, 204);
     }
 
     /**
@@ -72,7 +113,7 @@ class accountsController extends Controller
      */
     public function update(storeAccountsRequest $request, Post $post)
     {   
-        return response(null, 200);
+        return response(null, 204);
     }
 
     /**

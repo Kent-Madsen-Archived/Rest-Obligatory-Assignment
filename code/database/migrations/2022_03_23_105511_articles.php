@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('secondary_title');
             $table->string('stub', 128)->unique();
-            $table->timestamp('release');
+            
+            $table->timestamp('release')->useCurrent();
             $table->timestamps();
         });
     }

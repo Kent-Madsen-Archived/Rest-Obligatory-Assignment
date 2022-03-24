@@ -20,9 +20,8 @@ return new class extends Migration
             
             $table->bigInteger('email_id')->unsigned();
             $table->foreign('email_id')->references('id')->on('account_mail');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable()->useCurrent();
 
-            
             $table->bigInteger('mail_subscription_category_id')->unsigned();
             $table->foreign('mail_subscription_category_id')->references('id')->on('mail_subscription_categories');
         });

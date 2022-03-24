@@ -20,7 +20,6 @@ return new class extends Migration
             $table->longText('content_page');
             $table->bigInteger('article_id')->unsigned();
             $table->foreign('article_id')->references('id')->on('articles');
-            $table->timestamps();
         });
     }
 
