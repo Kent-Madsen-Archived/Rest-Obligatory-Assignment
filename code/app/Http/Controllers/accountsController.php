@@ -3,45 +3,74 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\storeAccountsRequest;
+use App\Http\Requests\StoreAccountsRequest;
 use App\Http\Resources\PostResource;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 use Validator;
 
 use Illuminate\Http\Request;
 
-use App\Models\Users as User;
+use App\Models\User;
 use App\Models\Post;
 
 use App\Models\Account;
 
 
-class accountsController 
+class AccountsController 
     extends Controller
 {
     //
-    public function index()
+    public function index( storeAccountsRequest $request )
     {
-        return response(null, 200);
+        $v = $request->route('id');
+
+        $accounts = User::where('id', $v)->first();
+
+        return response($accounts, 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(storeAccountsRequest $request)
+
+    public function login( storeAccountsRequest $request )
     {
-        return response(null, 204);
+        $validator = Validator::make
+        (
+            $request->all(), 
+            [
+                'username' => 'required',
+            ]
+        );
+
+        if( $validator->fails() )
+        {
+            return $this->sendError( 'Error validation', $validator->errors() );       
+        }
+
+        if( 
+            Auth::attempt
+                (
+                    [ 
+                        'username' => $request->username, 
+                        'password' => $request->password
+                    ] 
+                )
+            )
+        { 
+            $authUser = Auth::user(); 
+
+            $success['token'] =  $authUser->createToken('Account')->plainTextToken; 
+            $success['username'] =  $authUser->username;
+   
+            return response($success, 200);
+        } 
+        else
+        { 
+            return $this->sendError( 'Unauthorised.', ['error'=>'Unauthorised'] );
+        }
     }
 
-    public function login(storeAccountsRequest $request)
-    {
-        return response(null, 204);
-    }
 
     public function register(storeAccountsRequest $request)
     {
@@ -66,43 +95,16 @@ class accountsController
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt( $input[ 'password' ] );
+        $input['password'] = Hash::make( $input[ 'password' ] );
 
         $user = User::create( $input );
         
-        $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
-        $success['name'] =  $user->nickname;
+        $success['token'] =  $user->createToken('Account')->plainTextToken;
+        $success['username'] =  $user->username;
 
-        return response($success, 204);
+        return response($success, 200);
     }
 
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-        
-        return response(null, 204);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-        
-        return response(null, 204);
-    }
 
     /**
      * Update the specified resource in storage.
@@ -115,6 +117,7 @@ class accountsController
     {   
         return response(null, 204);
     }
+    
 
     /**
      * Remove the specified resource from storage.
