@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ccountsController;
+use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\AccountMailsController;
 
 use Illuminate\Http\Request;
@@ -40,30 +40,31 @@ Route::middleware( PS )->get(
 
 
 // Account Mails
-Route::middleware( PS )->get(
-    'accounts/mail/store/{pagination}', 
-    [AccountMailsController::class, 'store']
+// Create
+Route::middleware( PS )->post(
+    'accounts/mail/create', 
+    [AccountMailsController::class, 'create']
 );
 
+// Select
 Route::middleware( PS )->get(
-    'accounts/mail/store/identity/{id}', 
+    'accounts/mail/select/identity/{id}', 
     [AccountMailsController::class, 'retrieve_by_id']
-);
+)->where('id', '[0-9]');
+
 Route::middleware( PS )->get(
-    'accounts/mail/store/email/{name}', 
+    'accounts/mail/select/email/{name}', 
     [AccountMailsController::class, 'retrieve_by_name']
 );
 
-Route::middleware( PS )->get(
-    'accounts/mail/register', 
-    [AccountMailsController::class, 'retrieve_by_name']
-);
-Route::middleware( PS )->get(
-    'accounts/mail/edit', 
-    [AccountMailsController::class, 'retrieve_by_name']
-);
-Route::middleware( PS )->get(
-    'accounts/mail/delete/', 
-    [AccountMailsController::class, 'retrieve_by_name']
-);
+//
+Route::middleware( PS )->patch(
+    'accounts/mail/update/{id}', 
+    [AccountMailsController::class, 'update']
+)->where('id', '[0-9]+');
+
+Route::middleware( PS )->delete(
+    'accounts/mail/delete/{id}', 
+    [AccountMailsController::class, 'destroy']
+)->where('id', '[0-9]+');
 
