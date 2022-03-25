@@ -22,9 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('middle_name')->nullable();
             
-            $table->bigInteger('email_id')->unsigned()->unique();
-            $table->foreign('email_id')->references('id')->on('account_mail');
-            
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable()->useCurrent();
 
             $table->string('password');

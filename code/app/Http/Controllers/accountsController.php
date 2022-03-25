@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAccountsRequest;
-use App\Http\Resources\PostResource;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -82,7 +81,9 @@ class AccountsController
                 'first_name' => 'required',
                 'last_name' => 'required',
 
-                'email_id' => 'required',
+                //'email_id' => 'required',
+                'email' => 'required|email',
+                
                 'password' => 'required',
                 
                 'confirm_password' => 'required|same:password',

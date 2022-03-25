@@ -27,7 +27,8 @@ class User
                             'first_name', 
                             'last_name', 
                             'middle_name', 
-                            'email_id', 
+                            //'email_id',
+                            'email', 
                             'password', ];
 
     /**

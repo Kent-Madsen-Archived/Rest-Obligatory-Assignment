@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AccountMailsRequest 
     extends FormRequest
@@ -14,7 +15,7 @@ class AccountMailsRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
