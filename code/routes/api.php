@@ -6,6 +6,7 @@ use App\Http\Controllers\AccountMailsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// Password Protected
 define("PS", 'auth:sanctum');
 
 /*
@@ -18,43 +19,50 @@ define("PS", 'auth:sanctum');
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// Basics req:
 Route::post(
     'register', 
     [AccountsController::class, 'register']
 );
+
 Route::post(
     'login', 
     [AccountsController::class, 'login']
 );
 
-Route::middleware(PS)->get(
+
+// Account Id
+Route::middleware( PS )->get(
     'accounts/{id}', 
     [AccountsController::class, 'index']
 );
 
-Route::middleware(PS)->get(
+
+// Account Mails
+Route::middleware( PS )->get(
     'accounts/mail/store/{pagination}', 
     [AccountMailsController::class, 'store']
 );
 
-Route::middleware(PS)->get(
+Route::middleware( PS )->get(
     'accounts/mail/store/identity/{id}', 
     [AccountMailsController::class, 'retrieve_by_id']
 );
-Route::middleware(PS)->get(
+Route::middleware( PS )->get(
     'accounts/mail/store/email/{name}', 
     [AccountMailsController::class, 'retrieve_by_name']
 );
 
-Route::middleware(PS)->get(
+Route::middleware( PS )->get(
     'accounts/mail/register', 
     [AccountMailsController::class, 'retrieve_by_name']
 );
-Route::middleware(PS)->get(
+Route::middleware( PS )->get(
     'accounts/mail/edit', 
     [AccountMailsController::class, 'retrieve_by_name']
 );
-Route::middleware(PS)->get(
+Route::middleware( PS )->get(
     'accounts/mail/delete/', 
     [AccountMailsController::class, 'retrieve_by_name']
 );
