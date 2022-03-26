@@ -7,6 +7,6 @@ spec:
       repo_clone_url: https://github.com/KentVejrupMadsen/Rest-Obligatory-Assignment
     envs:
     - key: APP_KEY
-      value: "base64:UdAH2B63rlotjrkSSsj3Hppy4gbfr+OeHvtSdF9r9q8="
+      value: "base64:YAB3Uc65NeKokhRjh6+8mBuhgfRnVqJfrUBxB8EPzMg="
     name: Goal-Pioneers-Website
     run_command: heroku-php-apache2 /backend/public/
