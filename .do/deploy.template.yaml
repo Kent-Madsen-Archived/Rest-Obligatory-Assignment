@@ -10,5 +10,5 @@ spec:
       value: "base64:YAB3Uc65NeKokhRjh6+8mBuhgfRnVqJfrUBxB8EPzMg="
     name: goal-pioneers-website
     run_command: heroku-php-apache2 public/
-    source_dir: /backend
+    source_dir: /
     http_port: 8080
