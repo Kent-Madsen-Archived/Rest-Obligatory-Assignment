@@ -1,6 +1,5 @@
 spec:
-  name: Goal-Pioneers-Website
-
+  name: goal-pioneers-website
   services:
   - environment_slug: php
     git:
@@ -9,7 +8,7 @@ spec:
     envs:
     - key: APP_KEY
       value: "base64:YAB3Uc65NeKokhRjh6+8mBuhgfRnVqJfrUBxB8EPzMg="
-    name: Goal-Pioneers-Website
+    name: goal-pioneers-website
     run_command: heroku-php-apache2 public/
     source_dir: /backend
-    http_port: 8000
+    http_port: 8080
