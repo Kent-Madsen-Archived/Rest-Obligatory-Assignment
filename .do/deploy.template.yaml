@@ -7,6 +7,7 @@ spec:
       repo_clone_url: https://github.com/KentVejrupMadsen/Rest-Obligatory-Assignment
     envs:
     - key: APP_KEY
+      scope: RUN_AND_BUILD_TIME
       value: "base64:YAB3Uc65NeKokhRjh6+8mBuhgfRnVqJfrUBxB8EPzMg="
     name: goal-pioneers-website
     run_command: heroku-php-apache2 public/
