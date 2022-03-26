@@ -12,3 +12,4 @@ spec:
     name: goal-pioneers-website
     run_command: heroku-php-apache2 public/
     http_port: 8080
+    source_dir: /backend
