@@ -10,12 +10,14 @@ class MailingListController
     //
     public function select( Request $request )
     {
-
+        
+        return response()->json($request, 200);
     }
 
     public function page( Request $request )
     {
-
+        
+        return response()->json($request, 200);
     }
 
     public function create( Request $request )
@@ -25,13 +27,14 @@ class MailingListController
 
     public function update( Request $request )
     {
-
+        
+        return response()->json($request, 200);
     }
 
     public function delete( Request $request )
     {
-
+        
+        return response()->json($request, 200);
     }
-
 
 }

@@ -36,6 +36,7 @@ Route::post( 'account/login',
     [AccountController::class, 'login']
 );
 
+
 // Subscription
 Route::middleware(['auth:sanctum'])->group(
     function () 
