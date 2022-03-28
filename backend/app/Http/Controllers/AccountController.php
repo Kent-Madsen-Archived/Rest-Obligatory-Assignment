@@ -18,7 +18,7 @@ class AccountController
         $validator = Validator::make( $request->all(), 
             [
                 'username'          => 'required',
-                'email'             => 'required|email',
+                'mail'             => 'required|email',
                 'password'          => 'required',
                 'confirm_password'  => 'required|same:password',
             ]
