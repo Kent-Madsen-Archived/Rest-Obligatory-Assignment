@@ -30,6 +30,7 @@ class AccountController
         }
 
         $inputModel = $request->all();
+        $inputModel['email'] = $request->input('mail');
         $inputModel['password'] = Hash::make( $inputModel['password'] );
 
         $account = User::create( $inputModel );
