@@ -26,7 +26,7 @@ class AccountController
 
         if( $validator->fails() )
         {
-            return $this->sendError( 'Error validation', $validator->errors() );       
+            return response()->json( $validator->errors() );       
         }
 
         $inputModel = $request->all();
@@ -53,7 +53,7 @@ class AccountController
 
         if( $validator->fails() )
         {
-            return $this->sendError( 'Error validation', $validator->errors() );       
+            return response()->json( $validator->errors() );       
         }
 
         $outputMessage = null;
@@ -68,7 +68,7 @@ class AccountController
         } 
         else
         { 
-            return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
+            return response()->json('Unauthorised.', ['error'=>'Unauthorised']);
         } 
         
         return response()->json($outputMessage, 200);
