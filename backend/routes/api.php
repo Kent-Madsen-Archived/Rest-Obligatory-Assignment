@@ -41,23 +41,23 @@ Route::post( 'account/login',
 Route::middleware(['auth:sanctum'])->group(
     function () 
     {
-        Route::post( 'subcription/create', 
+        Route::post( 'subscription/create', 
             [SubscriptionController::class, 'create']
         );
 
-        Route::get( 'subcription/{id}', 
+        Route::get( 'subscription/{id}', 
             [SubscriptionController::class, 'select']
         );
 
-        Route::get( 'subcription/page/{pagination}', 
+        Route::get( 'subscription/page/{pagination}', 
             [SubscriptionController::class, 'page']
         );
 
-        Route::patch( 'subcription/update', 
+        Route::patch( 'subscription/update', 
             [SubscriptionController::class, 'update']
         );
 
-        Route::delete( 'subcription/delete', 
+        Route::delete( 'subscription/delete', 
             [SubscriptionController::class, 'delete']
         );
     }
@@ -68,19 +68,19 @@ Route::middleware(['auth:sanctum'])->group(
 Route::middleware(['auth:sanctum'])->group(
     function () 
     {
-        Route::get( 'subcription/category/{id}', 
+        Route::get( 'subscription/category/{id}', 
             [SubscriptionCategoryController::class, 'select']
         );
 
-        Route::post( 'subcription/category/create', 
+        Route::post( 'subscription/category/create', 
             [SubscriptionCategoryController::class, 'create']
         );
 
-        Route::patch( 'subcription/category/update', 
+        Route::patch( 'subscription/category/update', 
             [SubscriptionCategoryController::class, 'update']
         );
 
-        Route::delete( 'subcription/category/delete', 
+        Route::delete( 'subscription/category/delete', 
             [SubscriptionCategoryController::class, 'delete']
         );
 
@@ -91,19 +91,19 @@ Route::middleware(['auth:sanctum'])->group(
 Route::middleware(['auth:sanctum'])->group(
     function () 
     {
-        Route::get( 'subcription/mail/{id}', 
+        Route::get( 'subscription/mail/{id}', 
             [MailingListController::class, 'select']
         );
 
-        Route::post( 'subcription/mail/create', 
+        Route::post( 'subscription/mail/create', 
             [MailingListController::class, 'create']
         );
 
-        Route::patch( 'subcription/mail/update', 
+        Route::patch( 'subscription/mail/update', 
             [MailingListController::class, 'update']
         );
 
-        Route::delete( 'subcription/mail/delete', 
+        Route::delete( 'subscription/mail/delete', 
             [MailingListController::class, 'delete']
         ); 
 
