@@ -7,6 +7,8 @@ use Validator;
 
 use App\Models\MailingListsModel;
 
+
+
 class MailingListController 
     extends Controller
 {
@@ -23,11 +25,13 @@ class MailingListController
         return response()->json($model, 200);
     }
 
+
     public function page( Request $request )
     {
         
         return response()->json($request, 200);
     }
+
 
     public function create( Request $request )
     {
@@ -49,12 +53,17 @@ class MailingListController
         return response()->json($creation, 200);
     }
 
+
     public function update( Request $request )
     {
+        $model = MailingListsModel::find( $request->input( 'id' ) );
         
+        $model->content = $request->input('mail');
+        $model->save();
         
-        return response()->json($request, 200);
+        return response()->json('success', 200);
     }
+
 
     public function delete( request $request )
     {
