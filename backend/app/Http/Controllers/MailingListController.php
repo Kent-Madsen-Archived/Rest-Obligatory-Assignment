@@ -17,7 +17,7 @@ class MailingListController
     {
         $model = MailingListsModel::find($request_id);
 
-        if(is_null($model))
+        if( is_null( $model ) )
         {
             return response()->json('Post does not exist.', 200);
         }
