@@ -13,6 +13,7 @@ class SubscriptionCategoryModel
     protected $table = 'subscription_category';
     public $timestamps = false;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +24,7 @@ class SubscriptionCategoryModel
         'content'
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -32,6 +34,7 @@ class SubscriptionCategoryModel
     [
 
     ];
+    
 
     /**
      * The attributes that should be cast.

@@ -1,0 +1,105 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Goal Pioneers Rest API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/1.0.0/account/registration": {
+            "post": {
+                "operationId": "89e9216f2a210fdcd9c607abb18315ea",
+                "responses": {
+                    "200": {
+                        "description": "User Registrated"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/account/login": {
+            "post": {
+                "operationId": "7ad1b8906f63a5b0022fadc93a32b99a",
+                "responses": {
+                    "200": {
+                        "description": "User Registrated"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/mail/{id}": {
+            "get": {
+                "operationId": "288082a0653d8d7bff311bdad73c8325",
+                "responses": {
+                    "200": {
+                        "description": "Get mail with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/mail/page/{id}": {
+            "get": {
+                "operationId": "d765d409633db61dcc865b06a7305ac9",
+                "responses": {
+                    "200": {
+                        "description": "Get page of emails"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/mail/create": {
+            "patch": {
+                "operationId": "9428398ea1a74382b00f9d0269ccc3b7",
+                "responses": {
+                    "200": {
+                        "description": "Upload email"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/mail/update": {
+            "patch": {
+                "operationId": "37a7210bf251aab722c09118a6344960",
+                "responses": {
+                    "200": {
+                        "description": "Get mail with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/mail/delete": {
+            "delete": {
+                "operationId": "fa20bd6f3451c382661e8f2608eeb439",
+                "responses": {
+                    "200": {
+                        "description": "Get mail with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        }
+    }
+}

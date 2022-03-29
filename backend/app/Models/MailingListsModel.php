@@ -13,6 +13,7 @@ class MailingListsModel
     protected $table = 'mailing_lists';
     public $timestamps = false;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +23,7 @@ class MailingListsModel
     [
         'content'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -33,6 +35,7 @@ class MailingListsModel
 
     ];
 
+    
     /**
      * The attributes that should be cast.
      *
