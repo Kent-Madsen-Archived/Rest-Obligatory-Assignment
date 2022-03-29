@@ -113,6 +113,17 @@
         "/api/1.0.0/subscription/mail/delete": {
             "delete": {
                 "operationId": "fa20bd6f3451c382661e8f2608eeb439",
+                "parameters": [
+                    {
+                        "name": "Content-Type=application/json",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Get mail with {id} of UInteger type"

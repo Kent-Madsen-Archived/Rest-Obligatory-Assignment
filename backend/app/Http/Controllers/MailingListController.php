@@ -117,12 +117,14 @@ class MailingListController
     /**
      * 
      */
-    
     #[OA\Delete(
         path: '/api/1.0.0/subscription/mail/delete',
         responses: [
             new OA\Response(response: 200, description: 'Get mail with {id} of UInteger type'),
             new OA\Response(response: 401, description: 'Not allowed'),
+        ],
+        parameters:[
+            new OA\Parameter(in:'query', name:'Content-Type=application/json', required:true, description:' ', schema:new OA\Schema(type:'string'))
         ]
     )]
     public function delete( request $request )
