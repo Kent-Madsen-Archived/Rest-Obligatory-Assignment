@@ -98,9 +98,10 @@ class SubscriptionController
         }
 
         $subscription = SubscriptionModel::find( $request->input('id') );
-        $subscription->mail_id = $mail->id;
-        $subscription->category_id = $category->id;
         
+        $subscription->mail_id      = $mail->id;
+        $subscription->category_id  = $category->id;
+
         $subscription->save();
 
         return response()->json( $request, 200 );
