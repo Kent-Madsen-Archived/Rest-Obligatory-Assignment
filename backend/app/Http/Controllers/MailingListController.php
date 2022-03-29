@@ -21,6 +21,9 @@ class MailingListController
      */
     #[OA\Get(
         path: '/api/1.0.0/subscription/mail/{id}',
+        parameters: [
+            new OA\PathParameter(name:'id', in:'query' ,required:true, description:'UInt', schema:new OA\Schema(type:'integer')),
+        ],
         responses: [
             new OA\Response(response: 200, description: 'Get mail with {id} of UInteger type'),
             new OA\Response(response: 401, description: 'Not allowed'),
@@ -44,8 +47,11 @@ class MailingListController
      */
     #[OA\Get(
         path: '/api/1.0.0/subscription/mail/page/{id}',
+        parameters: [
+            new OA\PathParameter(name:'id', in:'query' ,required:true, description:'pagination', schema:new OA\Schema(type:'integer')),
+        ],
         responses: [
-            new OA\Response(response: 200, description: 'Get page of emails'),
+            new OA\Response(response: 200, description: 'Get mail with {id} of UInteger type'),
             new OA\Response(response: 401, description: 'Not allowed'),
         ]
     )]

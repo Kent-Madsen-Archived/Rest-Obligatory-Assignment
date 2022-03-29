@@ -20,6 +20,16 @@ class SubscriptionCategoryController
     /**
      * 
      */
+    #[OA\Get(
+        path: '/api/1.0.0/subscription/category/{id}',
+        parameters: [
+            new OA\PathParameter(name:'id', in:'query' , required:true, description:'UInt', schema:new OA\Schema(type:'integer')),
+        ],
+        responses: [
+            new OA\Response(response: 200, description: 'Get category with {id} of UInteger type'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function select( $request_id )
     {
         $model = SubscriptionCategoryModel::find( $request_id );
@@ -36,6 +46,16 @@ class SubscriptionCategoryController
     /**
      * 
      */
+    #[OA\Get(
+        path: '/api/1.0.0/subscription/category/page/{id}',
+        parameters: [
+            new OA\PathParameter(name:'id', in:'query' , required:true, description:'UInt', schema:new OA\Schema(type:'integer')),
+        ],
+        responses: [
+            new OA\Response(response: 200, description: 'Get category with {id} of UInteger type'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function page( $request )
     {
 
@@ -45,6 +65,13 @@ class SubscriptionCategoryController
     /**
      * 
      */
+    #[OA\Patch(
+        path: '/api/1.0.0/subscription/category/create',
+        responses: [
+            new OA\Response(response: 200, description: 'Upload email'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function create( Request $request )
     {
         $mailRequest = $request->all();
@@ -69,6 +96,13 @@ class SubscriptionCategoryController
     /**
      * 
      */
+    #[OA\Patch(
+        path: '/api/1.0.0/subscription/category/update',
+        responses: [
+            new OA\Response(response: 200, description: 'Get mail with {id} of UInteger type'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function update( Request $request )
     {
         $model = SubscriptionCategoryModel::find( $request->input('id') );
@@ -88,6 +122,13 @@ class SubscriptionCategoryController
     /**
      * 
      */
+    #[OA\Delete(
+        path: '/api/1.0.0/subscription/category/delete',
+        responses: [
+            new OA\Response(response: 200, description: 'Get mail with {id} of UInteger type'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function delete( Request $request )
     {
         $subscriptionCategoryRequest = $request->all();

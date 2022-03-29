@@ -39,6 +39,17 @@
         "/api/1.0.0/subscription/mail/{id}": {
             "get": {
                 "operationId": "288082a0653d8d7bff311bdad73c8325",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "UInt",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Get mail with {id} of UInteger type"
@@ -52,9 +63,20 @@
         "/api/1.0.0/subscription/mail/page/{id}": {
             "get": {
                 "operationId": "d765d409633db61dcc865b06a7305ac9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "pagination",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Get page of emails"
+                        "description": "Get mail with {id} of UInteger type"
                     },
                     "401": {
                         "description": "Not allowed"
@@ -91,6 +113,93 @@
         "/api/1.0.0/subscription/mail/delete": {
             "delete": {
                 "operationId": "fa20bd6f3451c382661e8f2608eeb439",
+                "responses": {
+                    "200": {
+                        "description": "Get mail with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/category/{id}": {
+            "get": {
+                "operationId": "39b53e012d6616db87479243dbd1674c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "UInt",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get category with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/category/page/{id}": {
+            "get": {
+                "operationId": "8b028d9ad864a2d2ff8668016336158a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "UInt",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get category with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/category/create": {
+            "patch": {
+                "operationId": "f640d796eba99ba8976a68a93f0b6e62",
+                "responses": {
+                    "200": {
+                        "description": "Upload email"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/category/update": {
+            "patch": {
+                "operationId": "1c01f3b4b1d146e93f39fb27f5957014",
+                "responses": {
+                    "200": {
+                        "description": "Get mail with {id} of UInteger type"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        },
+        "/api/1.0.0/subscription/category/delete": {
+            "delete": {
+                "operationId": "2c34e4a37ac0d91ce3da672ebab31369",
                 "responses": {
                     "200": {
                         "description": "Get mail with {id} of UInteger type"
