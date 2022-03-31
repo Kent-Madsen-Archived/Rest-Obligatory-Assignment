@@ -14,11 +14,15 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'subscription_category', 
+        Schema::create( 'address_city', 
             function ( Blueprint $table ) 
             {
-                $table->id();
-                $table->string('content')->unique();
+                $table->id(); 
+                $table->unsignedBigInteger('address_country_id');
+
+                $table->string('city_name')->unique();
+
+                $table->foreign('address_country_id')->references('id')->on('address_country');
             }
         );
     }
@@ -31,6 +35,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('subscription_category');
+        Schema::dropIfExists('address_city');
     }
-}; 
+};

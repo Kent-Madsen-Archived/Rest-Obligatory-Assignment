@@ -14,11 +14,14 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'subscription_category', 
+        Schema::create( 'address_city_province', 
             function ( Blueprint $table ) 
             {
-                $table->id();
-                $table->string('content')->unique();
+                $table->id(); 
+
+                $table->biginteger('address_city_province_label_id')->unsigned();
+                $table->biginteger('postal_code')->unsigned();
+                $table->foreign( 'address_city_province_label_id' )->references( 'id' )->on( 'address_city_province_label' );
             }
         );
     }
@@ -31,6 +34,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('subscription_category');
+        Schema::dropIfExists('address_city_province');
     }
-}; 
+};

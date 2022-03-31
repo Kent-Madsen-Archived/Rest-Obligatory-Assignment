@@ -18,9 +18,8 @@ use App\Http\Controllers\MailingListController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware( 'auth:sanctum' )->get( '/user', 
-    function ( Request $request ) 
+    function( Request $request ) 
     {
         return $request->user();
     }
@@ -28,36 +27,36 @@ Route::middleware( 'auth:sanctum' )->get( '/user',
 
 
 // Authentication
-Route::post( 'account/register', 
+Route::post( '1.0.0/account/registration', 
     [AccountController::class, 'register']
 );
 
-Route::post( 'account/login', 
+Route::post( '1.0.0/account/login', 
     [AccountController::class, 'login']
 );
 
 
 // Subscription
 Route::middleware(['auth:sanctum'])->group(
-    function () 
+    function() 
     {
-        Route::post( 'subscription/create', 
+        Route::post( '1.0.0/subscription/create', 
             [SubscriptionController::class, 'create']
         );
 
-        Route::get( 'subscription/{id}', 
+        Route::get( '1.0.0/subscription/{id}', 
             [SubscriptionController::class, 'select']
         );
 
-        Route::get( 'subscription/page/{pagination}', 
+        Route::get( '1.0.0/subscription/page/{pagination}', 
             [SubscriptionController::class, 'page']
         );
 
-        Route::patch( 'subscription/update', 
+        Route::patch( '1.0.0/subscription/update', 
             [SubscriptionController::class, 'update']
         );
 
-        Route::delete( 'subscription/delete', 
+        Route::delete( '1.0.0/subscription/delete', 
             [SubscriptionController::class, 'delete']
         );
     }
@@ -66,44 +65,45 @@ Route::middleware(['auth:sanctum'])->group(
 
 // Subscription Category
 Route::middleware(['auth:sanctum'])->group(
-    function () 
+    function() 
     {
-        Route::get( 'subscription/category/{id}', 
+        Route::get( '1.0.0/subscription/category/{id}', 
             [SubscriptionCategoryController::class, 'select']
         );
 
-        Route::post( 'subscription/category/create', 
+        Route::post( '1.0.0/subscription/category/create', 
             [SubscriptionCategoryController::class, 'create']
         );
 
-        Route::patch( 'subscription/category/update', 
+        Route::patch( '1.0.0/subscription/category/update', 
             [SubscriptionCategoryController::class, 'update']
         );
 
-        Route::delete( 'subscription/category/delete', 
+        Route::delete( '1.0.0/subscription/category/delete', 
             [SubscriptionCategoryController::class, 'delete']
         );
 
     }
 );
 
+
 // Subscription Mails
 Route::middleware(['auth:sanctum'])->group(
-    function () 
+    function() 
     {
-        Route::get( 'subscription/mail/{id}', 
+        Route::get( '1.0.0/subscription/mail/{id}', 
             [MailingListController::class, 'select']
         );
 
-        Route::post( 'subscription/mail/create', 
+        Route::post( '1.0.0/subscription/mail/create', 
             [MailingListController::class, 'create']
         );
 
-        Route::patch( 'subscription/mail/update', 
+        Route::patch( '1.0.0/subscription/mail/update', 
             [MailingListController::class, 'update']
         );
 
-        Route::delete( 'subscription/mail/delete', 
+        Route::delete( '1.0.0/subscription/mail/delete', 
             [MailingListController::class, 'delete']
         ); 
 

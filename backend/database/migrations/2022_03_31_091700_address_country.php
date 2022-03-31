@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'subscription_category', 
+        Schema::create( 'address_country', 
             function ( Blueprint $table ) 
             {
-                $table->id();
-                $table->string('content')->unique();
+                $table->id(); 
+                $table->string('country_name')->unique();
             }
         );
     }
@@ -31,6 +31,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('subscription_category');
+        Schema::dropIfExists('address_country');
     }
-}; 
+};

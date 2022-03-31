@@ -7,7 +7,21 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+use OpenApi\Attributes as OA;
+
+
+class OpenApi {}
+
+#[OA\Server(url:"http://localhost:8000")]
+#[OA\info(title:"Goal Pioneers Rest API", version:"1.0.0")]
+
+/**
+ * 
+ */
+class Controller 
+    extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, 
+        DispatchesJobs, 
+        ValidatesRequests;
 }

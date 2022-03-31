@@ -18,7 +18,7 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id();
-                
+
                 $table->bigInteger('category_id')->unsigned();
                 $table->bigInteger('mail_id')->unsigned();
 
@@ -38,7 +38,6 @@ return new class extends Migration
     public function down()
     {
         //
-
         Schema::dropIfExists('subscriptions');
     }
 };

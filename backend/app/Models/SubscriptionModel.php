@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SubscriptionCategoryModel 
+
+/**
+ * 
+ */
+class SubscriptionModel 
     extends Model
 {
     use HasFactory;
 
-    protected $table = 'subscription_category';
-    public $timestamps = false;
-
+    protected $table = 'subscriptions';
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * 
      */
     protected $fillable = 
     [
-        'content'
+        'category_id',
+        'mail_id'
     ];
 
 
@@ -32,7 +33,8 @@ class SubscriptionCategoryModel
      */
     protected $hidden = 
     [
-
+        'created_at', 
+        'updated_at'
     ];
     
 
@@ -43,7 +45,7 @@ class SubscriptionCategoryModel
      */
     protected $casts = 
     [
-        
+          
     ];
 
 }
