@@ -18,7 +18,10 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id(); 
-                $table->string('province_name');
+
+                $table->biginteger('address_city_province_label_id')->unsigned();
+                $table->biginteger('postal_code')->unsigned();
+                $table->foreign( 'address_city_province_label_id' )->references( 'id' )->on( 'address_city_province_label' );
             }
         );
     }

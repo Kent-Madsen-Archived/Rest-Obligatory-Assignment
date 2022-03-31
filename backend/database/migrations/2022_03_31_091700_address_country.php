@@ -18,7 +18,7 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id(); 
-                $table->string('country_name');
+                $table->string('country_name')->unique();
             }
         );
     }
