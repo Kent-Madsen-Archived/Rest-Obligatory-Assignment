@@ -19,7 +19,7 @@ return new class extends Migration
             {
                 $table->id(); 
                 $table->string('address');
-                $table->int('address_number');
+                $table->integer('address_number');
             }
         );
     }
