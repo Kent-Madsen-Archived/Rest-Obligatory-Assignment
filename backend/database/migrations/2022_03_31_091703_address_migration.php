@@ -18,8 +18,9 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id(); 
-                $table->string('address');
-                $table->integer('address_number');
+                $table->integer('address_city_id')->unsigned();
+                $table->string('address_number');
+
             }
         );
     }

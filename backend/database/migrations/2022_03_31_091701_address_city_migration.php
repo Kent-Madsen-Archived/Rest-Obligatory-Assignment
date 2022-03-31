@@ -20,8 +20,8 @@ return new class extends Migration
                 $table->id(); 
                 $table->integer('address_country_id')->unsigned();
                 $table->integer('address_province_id')->unsigned();
-                $table->string('city');
-                
+                $table->string('city_name');
+                $table->integer('postal_code');
             }
         );
     }
