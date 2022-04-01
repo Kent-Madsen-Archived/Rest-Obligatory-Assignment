@@ -20,12 +20,10 @@ return new class extends Migration
                 $table->id(); 
 
                 $table->unsignedBigInteger('address_city_id');
-                $table->unsignedBigInteger('address_province_id');
 
                 $table->string('address_number');
 
-                $table->foreign('address_city_id')->references('id')->on('address_label_city');
-                $table->foreign('address_province_id')->references('id')->on('address_city_province');
+                $table->foreign('address_city_id')->references('id')->on('address_city');
 
             }
         );
