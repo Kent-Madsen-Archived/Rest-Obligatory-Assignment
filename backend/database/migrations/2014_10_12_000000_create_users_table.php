@@ -18,8 +18,10 @@ return new class extends Migration
             {
                 $table->id();
                 $table->string('username');
+                
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable()->useCurrent();
+
                 $table->string('password');
                 $table->rememberToken();
                 $table->timestamps();
