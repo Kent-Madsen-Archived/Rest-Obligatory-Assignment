@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'address_city_province_label', 
+        Schema::create( 'address_label_province', 
             function ( Blueprint $table ) 
             {
                 $table->id(); 
@@ -31,6 +31,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('address_city_province_label');
+        Schema::dropIfExists('address_label_province');
     }
 };

@@ -19,9 +19,10 @@ return new class extends Migration
             {
                 $table->id(); 
 
-                $table->biginteger('address_city_province_label_id')->unsigned();
+                $table->biginteger('address_label_province_id')->unsigned();
                 $table->biginteger('postal_code')->unsigned();
-                $table->foreign( 'address_city_province_label_id' )->references( 'id' )->on( 'address_city_province_label' );
+                
+                $table->foreign( 'address_label_province_id' )->references( 'id' )->on( 'address_label_province' );
             }
         );
     }

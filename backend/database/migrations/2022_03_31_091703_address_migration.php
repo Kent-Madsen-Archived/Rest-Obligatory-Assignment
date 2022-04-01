@@ -24,7 +24,7 @@ return new class extends Migration
 
                 $table->string('address_number');
 
-                $table->foreign('address_city_id')->references('id')->on('address_city');
+                $table->foreign('address_city_id')->references('id')->on('address_label_city');
                 $table->foreign('address_province_id')->references('id')->on('address_city_province');
 
             }

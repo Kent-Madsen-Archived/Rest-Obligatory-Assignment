@@ -14,11 +14,15 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'address_country', 
+        Schema::create( 'address_label_city', 
             function ( Blueprint $table ) 
             {
                 $table->id(); 
-                $table->string('country_name')->unique();
+                $table->unsignedBigInteger('address_country_id');
+
+                $table->string('city_name')->unique();
+
+                $table->foreign('address_country_id')->references('id')->on('address_label_country');
             }
         );
     }
@@ -31,6 +35,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('address_country');
+        Schema::dropIfExists('address_label_city');
     }
 };
