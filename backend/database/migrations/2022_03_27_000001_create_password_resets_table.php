@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+/**
+ * 
+ */
 return new class extends Migration
 {
     /**
@@ -17,9 +21,13 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id();
-                $table->string('email')->index();
+
+                $table->bigInteger('email_id')->unsigned()->index();
+
                 $table->string('token');
+                
                 $table->timestamp('created_at')->nullable()->useCurrent();
+                $table->foreign('email_id')->references('id')->on('mailing_lists');
             }
         );
     }
