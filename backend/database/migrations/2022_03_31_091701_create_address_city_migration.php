@@ -22,13 +22,15 @@ return new class extends Migration
             function ( Blueprint $table ) 
             {
                 $table->id(); 
-                $table->unsignedBigInteger('address_label_country_id');
-                $table->unsignedBigInteger('address_province_id');
 
-                $table->string('city_name');
+                $table->bigInteger('address_label_country_id')->unsigned();
+                $table->bigInteger('address_province_id')->unsigned();
+
+                $table->bigInteger('city_name_id')->unsigned()->unique();
 
                 $table->foreign('address_label_country_id')->references('id')->on('address_label_country');
                 $table->foreign('address_province_id')->references('id')->on('address_city_province');
+                $table->foreign('city_name_id')->references('id')->on('address_label_city');
             }
         );
     }

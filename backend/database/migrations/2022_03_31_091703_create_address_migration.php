@@ -18,19 +18,22 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'address_city_province', 
+        Schema::create( 'address', 
             function ( Blueprint $table ) 
             {
                 $table->id(); 
 
-                $table->biginteger('address_label_province_id')->unsigned();
-                $table->biginteger('postal_code')->unsigned();
-                
-                $table->foreign( 'address_label_province_id' )->references( 'id' )->on( 'address_label_province' );
+                $table->bigInteger('address_city_id')->unsigned();
+
+                $table->string('address_number');
+
+                $table->foreign('address_city_id')->references('id')->on('address_city');
+
             }
         );
     }
 
+    
     /**
      * Reverse the migrations.
      *
@@ -39,6 +42,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('address_city_province');
+        Schema::dropIfExists('address');
     }
 };
