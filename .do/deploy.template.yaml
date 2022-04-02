@@ -1,15 +1,3 @@
-spec:
-  name: goal-pioneers-website
-  services:
-  - environment_slug: php
-    git:
-      branch: main
-      repo_clone_url: https://github.com/KentVejrupMadsen/Rest-Obligatory-Assignment
-    envs:
-    - key: APP_KEY
-      scope: RUN_AND_BUILD_TIME
-      value: "base64:YAB3Uc65NeKokhRjh6+8mBuhgfRnVqJfrUBxB8EPzMg="
-    name: goal-pioneers-website
-    run_command: heroku-php-apache2 public/
-    http_port: 8080
-    source_dir: /backend
+version https://git-lfs.github.com/spec/v1
+oid sha256:d9991407177148b8d490dcce3fd12341425352d0e92cb5404d8d56d6710bd884
+size 449
