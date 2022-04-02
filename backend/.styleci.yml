@@ -1,13 +1,3 @@
-php:
-  preset: laravel
-  version: 8
-  disabled:
-    - no_unused_imports
-  finder:
-    not-name:
-      - index.php
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
+version https://git-lfs.github.com/spec/v1
+oid sha256:3a6ca3b5b24e58a963ccde6eb0d58ae0120fea4e4ba3b718235c35f3aa115338
+size 188

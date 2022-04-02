@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+/**
+ * 
+ */
 return new class extends Migration
 {
     /**
@@ -13,19 +17,21 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create( 'subscriptions', 
+        Schema::create( 'users', 
             function ( Blueprint $table ) 
             {
                 $table->id();
+                $table->string('username');
+                
+                
+                $table->bigInteger('email_id')->unsigned()->unique();
+                $table->timestamp('email_verified_at')->nullable()->useCurrent();
 
-                $table->bigInteger('category_id')->unsigned();
-                $table->bigInteger('mail_id')->unsigned();
-
-                $table->foreign('category_id')->references('id')->on('subscription_category')->onDelete('CASCADE');
-                $table->foreign('mail_id')->references('id')->on('mailing_lists')->onDelete('CASCADE');
-
+                $table->string('password');
+                $table->rememberToken();
                 $table->timestamps();
+
+                $table->foreign('email_id')->references('id')->on('mailing_lists');
             }
         );
     }
@@ -37,7 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('subscriptions');
+        Schema::dropIfExists('users');
     }
 };

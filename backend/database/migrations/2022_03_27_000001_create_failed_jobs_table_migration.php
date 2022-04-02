@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * 
+ */
 return new class extends Migration
 {
     /**
@@ -13,12 +16,16 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create( 'subscription_category', 
+        Schema::create( 'failed_jobs', 
             function ( Blueprint $table ) 
             {
                 $table->id();
-                $table->string('content')->unique();
+                $table->string('uuid')->unique();
+                $table->text('connection');
+                $table->text('queue');
+                $table->longText('payload');
+                $table->longText('exception');
+                $table->timestamp('failed_at')->useCurrent();
             }
         );
     }
@@ -30,7 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('subscription_category');
+        Schema::dropIfExists('failed_jobs');
     }
-}; 
+};

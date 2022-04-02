@@ -13,18 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create( 'users', 
-            function ( Blueprint $table ) 
+        Schema::create( 'address_label_city', 
+            function( Blueprint $table ) 
             {
                 $table->id();
-                $table->string('username');
-                
-                $table->string('email')->unique();
-                $table->timestamp('email_verified_at')->nullable()->useCurrent();
-
-                $table->string('password');
-                $table->rememberToken();
-                $table->timestamps();
+                $table->string('country_name')->unique();
             }
         );
     }
@@ -36,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('address_label_city');
     }
 };
