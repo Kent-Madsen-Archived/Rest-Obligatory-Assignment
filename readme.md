@@ -1,1 +1,9 @@
-# Obligatorisk Opgave : rest api
+# Goal Pioneers website
+
+## Database
+
+## Backend
+
+## SCSS
+
+## Frontend
