@@ -1,7 +1,3 @@
-{
-    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
-    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
-    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
-    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute."
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:02f71e11ba07a1be77457cfedcbf17d8dc5904af006f16097bc390b5e8b647b2
+size 684
