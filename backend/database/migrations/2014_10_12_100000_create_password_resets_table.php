@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create( 'address_label_city', 
-            function( Blueprint $table ) 
+        Schema::create( 'password_resets', 
+            function ( Blueprint $table ) 
             {
                 $table->id();
-                $table->string('country_name')->unique();
+                $table->string('email')->index();
+                $table->string('token');
+                $table->timestamp('created_at')->nullable()->useCurrent();
             }
         );
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_label_city');
+        Schema::dropIfExists('password_resets');
     }
 };

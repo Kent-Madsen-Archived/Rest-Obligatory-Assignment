@@ -8,6 +8,8 @@ use App\Models\SubscriptionCategoryModel;
 use App\Models\MailingListsModel;
 use App\Models\SubscriptionModel;
 
+use OpenApi\Attributes as OA;
+
 
 /**
  * 

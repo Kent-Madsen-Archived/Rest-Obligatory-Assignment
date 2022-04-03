@@ -4,10 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-/**
- * 
- */
 return new class extends Migration
 {
     /**
@@ -17,19 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create( 'subscriptions', 
+        Schema::create( 'failed_jobs', 
             function ( Blueprint $table ) 
             {
                 $table->id();
-
-                $table->bigInteger('category_id')->unsigned();
-                $table->bigInteger('mail_id')->unsigned();
-
-                $table->foreign('category_id')->references('id')->on('subscription_category')->onDelete('CASCADE');
-                $table->foreign('mail_id')->references('id')->on('mailing_lists')->onDelete('CASCADE');
-
-                $table->timestamps();
+                $table->string('uuid')->unique();
+                $table->text('connection');
+                $table->text('queue');
+                $table->longText('payload');
+                $table->longText('exception');
+                $table->timestamp('failed_at')->useCurrent();
             }
         );
     }
@@ -41,7 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('subscriptions');
+        Schema::dropIfExists('failed_jobs');
     }
 };

@@ -4,10 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-/**
- * 
- */
 return new class extends Migration
 {
     /**
@@ -18,22 +14,19 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create( 'address', 
+        Schema::create( 'address_city_province', 
             function ( Blueprint $table ) 
             {
                 $table->id(); 
 
-                $table->bigInteger('address_city_id')->unsigned();
-
-                $table->string('address_number');
-
-                $table->foreign('address_city_id')->references('id')->on('address_city');
-
+                $table->biginteger('address_label_province_id')->unsigned();
+                $table->biginteger('postal_code')->unsigned();
+                
+                $table->foreign( 'address_label_province_id' )->references( 'id' )->on( 'address_label_province' );
             }
         );
     }
 
-    
     /**
      * Reverse the migrations.
      *
@@ -42,6 +35,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('address');
+        Schema::dropIfExists('address_city_province');
     }
 };

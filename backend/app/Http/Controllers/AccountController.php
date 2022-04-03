@@ -9,6 +9,8 @@ use Validator;
 
 use App\Models\User;
 
+use OpenApi\Attributes as OA;
+
 
 /**
  * 
@@ -16,6 +18,13 @@ use App\Models\User;
 class AccountController 
     extends Controller
 {
+    #[OA\Post(
+        path: '/api/1.0.0/account/registration',
+        responses: [
+            new OA\Response(response: 200, description: 'User Registrated'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function register( Request $request )
     {
         $validator = Validator::make( $request->all(), 
@@ -49,6 +58,13 @@ class AccountController
     /**
      * 
      */
+    #[OA\Post(
+        path: '/api/1.0.0/account/login',
+        responses: [
+            new OA\Response(response: 200, description: 'User Registrated'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+        ]
+    )]
     public function login( Request $request )
     {
         $validator = Validator::make( $request->all(), 
